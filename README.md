@@ -119,47 +119,49 @@ Key design principles:
 
 Here are some examples of  **input NL queries**  and their corresponding  **FHIR API requests**:
 
-   plain ```
+``` text
 
-   plain --- Example 1 ---
-    Input NL query: Show me patients over 50 with diabetes
-    Generated FHIR Request:
-    Method: GET
-    URL: [base]/Patient?birthdate=lt1975-01-01&_has:Condition:patient:code=44054006
-    Parameters: {'birthdate': 'lt1975-01-01', '_has:Condition:patient:code': '44054006'}
-    Query string: birthdate=lt1975-01-01&_has:Condition:patient:code=44054006
-    
-   plain --- Example 2 ---
-    Input NL query: Show me patients less than 40 who are hypertensive
-    Generated FHIR Request:
-    Method: GET
-    URL: [base]/Patient?birthdate=gt1985-01-01&_has:Condition:patient:code=38341003
-    Parameters: {'birthdate': 'gt1985-01-01', '_has:Condition:patient:code': '38341003'}
-    Query string: birthdate=gt1985-01-01&_has:Condition:patient:code=38341003
-    
-   plain --- Example 3 ---
-    Input NL query: Find patients aged 30 with asthma
-    Generated FHIR Request:
-    Method: GET
-    URL: [base]/Patient?birthdate=1995-01-01&_has:Condition:patient:code=195967001
-    Parameters: {'birthdate': '1995-01-01', '_has:Condition:patient:code': '195967001'}
-    Query string: birthdate=1995-01-01&_has:Condition:patient:code=195967001
-    
-    --- Example 4 ---
-    Input NL query: Find all female patients born after 1990.
-    Generated FHIR Request:
-    Method: GET
-    URL: [base]/Patient?gender=female&birthdate=gt1990-12-31
-    Parameters: {'gender': 'female', 'birthdate': 'gt1990-12-31'}
-    Query string: gender=female&birthdate=gt1990-12-31
-    
-    --- Example 5 ---
-    Input NL query: Find diabetes cases diagnosed before 2015.
-    Generated FHIR Request:
-    Method: GET
-    URL: [base]/Patient?_has:Condition:patient:code=44054006
-    Parameters: {'_has:Condition:patient:code': '44054006'}
-    Query string: _has:Condition:patient:code=44054006
+--- Example 1 ---
+Input NL query: Show me patients over 50 with diabetes
+Generated FHIR Request:
+Method: GET
+URL: [base]/Patient?birthdate=lt1975-01-01&_has:Condition:patient:code=44054006
+Parameters: {'birthdate': 'lt1975-01-01', '_has:Condition:patient:code': '44054006'}
+Query string: birthdate=lt1975-01-01&_has:Condition:patient:code=44054006
+
+--- Example 2 ---
+Input NL query: Show me patients less than 40 who are hypertensive
+Generated FHIR Request:
+Method: GET
+URL: [base]/Patient?birthdate=gt1985-01-01&_has:Condition:patient:code=38341003
+Parameters: {'birthdate': 'gt1985-01-01', '_has:Condition:patient:code': '38341003'}
+Query string: birthdate=gt1985-01-01&_has:Condition:patient:code=38341003
+
+--- Example 3 ---
+Input NL query: Find patients aged 30 with asthma
+Generated FHIR Request:
+Method: GET
+URL: [base]/Patient?birthdate=1995-01-01&_has:Condition:patient:code=195967001
+Parameters: {'birthdate': '1995-01-01', '_has:Condition:patient:code': '195967001'}
+Query string: birthdate=1995-01-01&_has:Condition:patient:code=195967001
+
+--- Example 4 ---
+Input NL query: Find all female patients born after 1990.
+Generated FHIR Request:
+Method: GET
+URL: [base]/Patient?gender=female&birthdate=gt1990-12-31
+Parameters: {'gender': 'female', 'birthdate': 'gt1990-12-31'}
+Query string: gender=female&birthdate=gt1990-12-31
+
+--- Example 5 ---
+Input NL query: Find diabetes cases diagnosed before 2015.
+Generated FHIR Request:
+Method: GET
+URL: [base]/Patient?_has:Condition:patient:code=44054006
+Parameters: {'_has:Condition:patient:code': '44054006'}
+Query string: _has:Condition:patient:code=44054006
+
+```
 
 ## Future Improvements
 
@@ -177,6 +179,6 @@ Here are some examples of  **input NL queries**  and their corresponding  **FHIR
 
     - Avoid repeated requests for identical queries to improve performance.
 
-5.   **Extensibility to other FHIR resources**:
+5. **Extensibility to other FHIR resources**:
 
-   plain - Expand to  `Condition`,  `Observation`,  `MedicationRequest`, etc.
+    - Expand to  `Condition`,  `Observation`,  `MedicationRequest`, etc.
