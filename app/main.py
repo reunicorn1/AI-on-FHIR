@@ -12,7 +12,10 @@ dispatcher = Dispatcher()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"], # Add the production URL when deploying
+    allow_origins=[
+        "http://localhost:3000",  # Development
+        "https://medifireai.netlify.app"  # Production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
