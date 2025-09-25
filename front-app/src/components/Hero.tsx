@@ -193,7 +193,7 @@ export default function HeroSectionOne({
                       </div>
                     ) : (
                       // Success state with AI response
-                      <DataView data={ generation.aiResponse } />
+                      <DataView data={ JSON.parse(generation.aiResponse ?? '{}') } />
                     )}
                   </motion.div>
                 </motion.div>

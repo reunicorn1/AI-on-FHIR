@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { useState } from "react";
 import Bottom from "@/components/Bottom";
 import NavBar from "@/components/NavBar";
-import HeroSectionOne from "@/components/hero-section-demo-1";
+import HeroSectionOne from "@/components/Hero";
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 
 type FHIRResponse = {

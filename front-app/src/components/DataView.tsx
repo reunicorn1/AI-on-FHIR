@@ -27,6 +27,7 @@ interface Summary {
 interface DataViewProps {
   data: {
     results?: {
+      params?: { [key: string]: string | number };
       patients?: Patient[];
       summary?: Summary;
     };
@@ -38,7 +39,7 @@ type ViewType = 'table' | 'statistics' | 'gender-chart' | 'age-chart';
 
 export default function DataView({ data }: DataViewProps) {
     const [activeView, setActiveView] = useState<ViewType>('table');
-    const parsedData = JSON.parse(data);
+    const parsedData = data;
     console.log('DataView received data:', !parsedData);
     if (!parsedData || !parsedData.results) {
     return <div>No data available</div>;
