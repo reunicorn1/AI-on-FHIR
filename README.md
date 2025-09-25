@@ -308,3 +308,6 @@ The demo showcases:
 5. **Extensibility to other FHIR resources**:
 
     - Expand to `Condition`, `Observation`, `MedicationRequest`, etc.
+  
+6. **Error handling**:
+
