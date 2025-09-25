@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import requests
-import json
+import os
+import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import FHIR_BASE_URL, FHIR_HEADERS
 from nlp_query.dispatcher import Dispatcher
@@ -69,3 +70,8 @@ def handle_query(request: QueryRequest):
         print("I caught an error:")
         print(e)
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app.main:app", host="0.0.0.0", port=port)
