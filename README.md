@@ -311,3 +311,15 @@ The demo showcases:
   
 6. **Error handling**:
 
+    - Errors are not handled best while sending API requests from the backend.
+    - The display of errors on the frontend could also be improved.
+
+7. **Auto-Completion**:
+
+    - Auto completion in the frontend currently is handled using basic format templates
+    - I plan to utilize language modelling in NLPs for better experience.
+
+8. **Matching Medical Codes**:
+
+    - Conidions are retrieved, and matched to a specific list of predefinied conditions using fuzzy search.
+    - This could improve if we plugged a medical coding system API, or through training a specific model for this task.
