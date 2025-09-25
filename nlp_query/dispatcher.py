@@ -28,7 +28,8 @@ class Dispatcher:
                 "zero-shot-classification",
                 model="facebook/bart-large-mnli"
             )
-        self.nlp = spacy.load("en_core_web_trf")
+        #self.nlp = spacy.load("en_core_web_trf")
+        self.nlp = spacy.load("en_core_web_sm")
         self.add_entity_ruler_patterns(PATIENT_PATTERNS) # add condition patterns as well later here
         self.medical_ner = pipeline(
             "ner",
@@ -74,7 +75,7 @@ class Dispatcher:
                                 "start": ent['start'], "end": ent['end']})
         return entities
     
-    def dispatch(self, prompt: str):
+    def dispatch(self, prompt: str, base_url: str = "[base]"):
         """Main dispatch function to classify, extract entities, and generate payload"""
         fhir_resource, request = self.classify(prompt)
         entities = self.apply_ner(prompt)
@@ -82,7 +83,7 @@ class Dispatcher:
             return {"error": "No entities found", "resource": str(fhir_resource.__name__)}
         fhir_prompt = fhir_resource(request) # Instantionation happend here
         try: 
-            payload = fhir_prompt.process(entities) # a base url can be passed here
+            payload = fhir_prompt.process(entities, base_url) # a base url can be passed here
         except NotImplementedError as e:
             return {"error": str(e), "resource": str(fhir_resource.__name__)}
         return payload
