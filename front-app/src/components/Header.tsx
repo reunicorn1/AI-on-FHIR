@@ -9,7 +9,7 @@ const Header = () => {
       <header className="flex-shrink-0 p-4 border-b border-gray-800">
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           <Image
-            src="/medifire.svg"
+            src="/medifire.png"
             alt="Medifire Logo"
             width={140}
             height={45}
