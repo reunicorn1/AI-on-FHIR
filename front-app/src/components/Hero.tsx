@@ -35,13 +35,13 @@ export default function HeroSectionOne({
       {/* Fixed bordered container */}
       <div className="relative max-w-5xl w-full h-full">
         {/* Fixed borders - never scroll */}
-        <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
+        <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-800/80">
           <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-orange-500 to-transparent" />
         </div>
-        <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
+        <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-800/80">
           <div className="absolute h-40 w-px bg-gradient-to-b from-transparent via-orange-500 to-transparent" />
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/80 dark:bg-neutral-800/80">
+        <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-800/80">
           <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
         </div>
         
@@ -79,7 +79,7 @@ export default function HeroSectionOne({
             duration: 0.3,
             delay: 0.8,
           }}
-          className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
+          className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-400"
         >
           MediFire connects patient responses with your FHIR data to deliver instant, actionable insights.
         </motion.p>
@@ -102,21 +102,21 @@ export default function HeroSectionOne({
                   className="p-4 rounded-lg border border-gray-800 text-black bg-gray-100 hover:bg-gray-300 transition-colors cursor-pointer text-left"
                 >
                   <h3 className="font-semibold mb-2">Find Patients</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Find all patients with diabetes who are males</p>
+                  <p className="text-sm text-gray-400">Find all patients with diabetes who are males</p>
                 </button>
                 <button 
                   onClick={() => handleQuickPrompt && handleQuickPrompt("Create a new patient entry for a 45-year-old male named John Doe")}
-                  className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors cursor-pointer text-left"
+                  className="p-4 rounded-lg border border-gray-700 bg-gray-800/50 hover:bg-gray-700/50 transition-colors cursor-pointer text-left"
                 >
                   <h3 className="font-semibold mb-2">Create New Entries</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Add a new patient, 45-year-old male named John Doe</p>
+                  <p className="text-sm text-gray-400">Add a new patient, 45-year-old male named John Doe</p>
                 </button>
                 <button 
                   onClick={() => handleQuickPrompt && handleQuickPrompt("Show me patients over 60 with hypertension")}
-                  className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors cursor-pointer text-left"
+                  className="p-4 rounded-lg border border-gray-700 bg-gray-800/50hover:bg-gray-700/50 transition-colors cursor-pointer text-left"
                 >
                   <h3 className="font-semibold mb-2">Search for Insights</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Show me patients over 60 with hypertension</p>
+                  <p className="text-sm text-gray-400">Show me patients over 60 with hypertension</p>
                 </button>
               </div>
             </motion.div>
@@ -139,7 +139,7 @@ export default function HeroSectionOne({
               {generations.map((generation, index) => (
                 <motion.div 
                   key={generation.id} 
-                  className="bg-white dark:bg-neutral-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6"
+                  className="bg-neutral-800 rounded-lg shadow-sm border border-gray-700 p-6"
                   initial={{ opacity: 0, y: 20, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ 
@@ -157,26 +157,26 @@ export default function HeroSectionOne({
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: (index * 0.1) + 0.2 }}
                   >
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span className="text-sm text-gray-400">
                       {generation.timestamp.toLocaleTimeString()}
                     </span>
                   </motion.div>
                   <motion.div 
-                    className="mb-4 p-4 bg-gray-50 dark:bg-neutral-900 rounded-md"
+                    className="mb-4 p-4 bg-neutral-900 rounded-md"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: (index * 0.1) + 0.3 }}
                   >
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">User:</p>
+                    <p className="text-sm text-gray-400 mb-2">User:</p>
                     <p className="font-medium">{generation.userPrompt}</p>
                   </motion.div>
                   <motion.div 
-                    className="p-4 bg-blue-50 dark:bg-zinc-700 rounded-md"
+                    className="p-4 bg-zinc-700 rounded-md"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: (index * 0.1) + 0.4 }}
                   >
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">AI Assistant:</p>
+                    <p className="text-sm text-gray-400 mb-2">AI Assistant:</p>
                     {generation.isLoading ? (
                       // Loading state - you can customize this component
                       <div className="flex items-center gap-3">
@@ -185,7 +185,7 @@ export default function HeroSectionOne({
                       </div>
                     ) : generation.error ? (
                       // Error state
-                      <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
+                      <div className="flex items-center gap-2 text-red-400">
                         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>

@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <>
       {/* Header */}
-      <header className="flex-shrink-0 p-4 border-b border-gray-200 dark:border-gray-800">
+      <header className="flex-shrink-0 p-4 border-b border-gray-800">
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           <Image
             src="/medifire.svg"
@@ -23,7 +23,7 @@ const Header = () => {
               className="text-sm transition-transform duration-200 hover:scale-95 active:scale-90 inline-block"
             >
               <Image 
-                className="dark:invert"
+                className="invert"
                 src="/github-3.png"
                 alt="GitHub Logo"
                 width={25}

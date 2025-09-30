@@ -74,7 +74,7 @@ export default function Bottom({
   };
 
   return (
-    <div className="flex-shrink-0 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black p-2">
+    <div className="flex-shrink-0 border-t border-zinc-800 bg-black p-2">
       <div className="max-w-5xl mx-auto px-4">
         <div className="relative">
           {/* Auto-complete suggestions dropdown */}
@@ -96,18 +96,18 @@ export default function Bottom({
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.1, delay: index * 0.02 }}
                       onClick={() => selectSuggestion(suggestion)}
-                      className={`w-full text-left px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-700 last:border-b-0 transition-colors ${
-                        index === selectedIndex ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-700' : ''
+                      className={`w-full text-left px-4 py-3 hover:bg-gray-700 border-b border-gray-700 last:border-b-0 transition-colors ${
+                        index === selectedIndex ? 'bg-blue-900/20 border-blue-700' : ''
                       }`}
                     >
-                      <div className="text-sm text-gray-900 dark:text-gray-100 font-medium">
+                      <div className="text-sm text-gray-100 font-medium">
                         {suggestion}
                       </div>
                     </motion.button>
                   ))}
                 </div>
-                <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700 bg-neutral-800/50">
-                  <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                <div className="px-4 py-2 border-t border-gray-700 bg-neutral-800/50">
+                  <div className="flex items-center justify-between text-xs text-gray-400">
                     <span>↑↓ Navigate • Enter Select • Esc Close</span>
                     <span>{filteredSuggestions.length} suggestions</span>
                   </div>
@@ -122,7 +122,7 @@ export default function Bottom({
             onChange={(e) => setPrompt(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Query insights about FHIR... (Press Enter to generate, Shift+Enter for new line)"
-            className="w-full p-3 pr-16 border border-gray-300 dark:border-gray-600 rounded-lg resize-none bg-neutral-900 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+            className="w-full p-3 pr-16 border border-gray-600 rounded-lg resize-none bg-neutral-900 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
             rows={2}
             maxLength={1000}
           />
@@ -146,14 +146,14 @@ export default function Bottom({
             </button>
           </div>
         </div>
-        <div className="flex justify-between items-center mt-1 text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between items-center mt-1 text-xs text-gray-400">
           <div className="flex gap-3">
             <span>Press Enter to generate</span>
             <span>Shift+Enter for new line</span>
           </div>
           <div className="flex gap-2">
-            <button className="hover:text-gray-700 dark:hover:text-gray-300">Clear</button>
-            <button className="hover:text-gray-700 dark:hover:text-gray-300">Settings</button>
+            <button className="hover:text-gray-300">Clear</button>
+            <button className="hover:text-gray-300">Settings</button>
           </div>
         </div>
       </div>
